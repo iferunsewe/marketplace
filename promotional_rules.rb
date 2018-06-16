@@ -1,13 +1,9 @@
-class PromotionalRules
-  def initialize(items:)
-    raise ArgumentError, "All items must be an Item" unless contains_items?(items)
-
-  end
-
-  private
-
-  def contains_items?(items)
-    !items.empty? && items.all?{|item| item.is_a? Item}
+module PromotionalRules
+  def self.apply_over_sixty_discount(total)
+    if total > 6000
+      total = total - (total / 10)
+    end
+    total
   end
 
 end
