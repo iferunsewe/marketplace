@@ -19,4 +19,25 @@ RSpec.describe PromotionalRules do
       end
     end
   end
+
+  describe '.apply_more_than_two_vcc_discount' do
+    subject(:apply_more_than_two_vcc_discount) { PromotionalRules.apply_more_than_two_vcc_discount(item_codes, total) }
+
+    context 'when there is more than 1 very cheap chairs' do
+      let(:item_codes){['001', '001', '002']}
+      let(:total){ 6350 }
+      it 'returns a discounted price where the chairs have a reduced price by 75' do
+        amount_to_reduce = item_codes.select{|code| code == '001'}.count * 75
+        expect(apply_more_than_two_vcc_discount).to eq total - amount_to_reduce
+      end
+    end
+
+    context 'when there is less than 2 very cheap chairs' do
+      let(:item_codes){['001', '002', '002']}
+      let(:total){ 6350 }
+      it 'returns the same total' do
+        expect(apply_more_than_two_vcc_discount).to eq total
+      end
+    end
+  end
 end
