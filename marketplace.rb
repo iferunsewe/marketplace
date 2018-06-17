@@ -20,7 +20,9 @@ end
 
 puts "-------------------------Marketplace--------------------------"
 
-puts "The items available are:\n#{Checkout::ITEMS.map{|item| "#{item[:name]} | price #{item[:price]} | code #{item[:code]}"}.join("\n")}"
+puts "The items available are:\n#{Checkout::ITEMS.map do
+    |item| "#{item[:name]} | price #{convert_total_to_pounds(item[:price])} | code #{item[:code]}"
+end.join("\n")}"
 
 puts "--------------------------------------------------------------"
 
