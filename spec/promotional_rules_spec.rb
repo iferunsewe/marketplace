@@ -4,7 +4,6 @@ RSpec.describe PromotionalRules do
   describe '.apply_over_sixty_discount' do
     subject(:apply_over_sixty_discount) { PromotionalRules.apply_over_sixty_discount(total) }
 
-
     context 'when there more the original total is more than 60' do
       let(:total){7000}
       it 'returns a 10% discounted total' do
