@@ -3,9 +3,9 @@ class Checkout
   attr_reader :basket
 
   ITEMS = [
-      {code: '001', price: 925},
-      {code: '002', price: 4500},
-      {code: '003', price: 1995}
+      {code: '001', name: 'Very cheap chair', price: 925},
+      {code: '002', name: 'Little table', price: 4500},
+      {code: '003', name: 'Funky table', price: 1995}
   ]
 
   def initialize(promotional_rules)
