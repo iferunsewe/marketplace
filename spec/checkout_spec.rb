@@ -4,7 +4,7 @@ RSpec.describe Checkout do
   subject(:checkout){ Checkout.new(DummyPromotionalRules) }
   module DummyPromotionalRules
     extend self
-    def apply_discounts(total, _)
+    def apply_discounts(total:, item_codes:)
       apply_fifty_percent_discount(total)
     end
 

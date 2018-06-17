@@ -28,7 +28,7 @@ class Checkout
 
   def apply_discounts
     original_total = calculate_original_total
-    @promotional_rules.apply_discounts(original_total, basket)
+    @promotional_rules.apply_discounts(total: original_total, item_codes: basket)
   end
 
   def calculate_original_total
