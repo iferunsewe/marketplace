@@ -11,3 +11,5 @@ Run `ruby marketplace.rb` to start the cli.
 ### Tests
 
 Run `bundle exec rspec` to run the tests for this program
+
+NB: Integration tests would be added if I had more time.
